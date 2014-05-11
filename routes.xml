@@ -1,0 +1,24 @@
+<routes>
+    <route name="splash" action="testController:home">
+        <params>
+            <param name="id">[0-9]+</param>
+        </params>
+        <url iso="fr">/{:id}</url>
+        <url iso="en">/{:id}</url>
+    </route>
+    <route name="category" action="Controllers\TestController:category" method="get">
+        <params>
+            <param name="id">[0-9]+</param>
+            <param name="slug">\w+</param>
+        </params>
+        <url iso="fr">/categorie/{:id}-{:slug}</url>
+        <url iso="en">/category/{:id}-{:slug}</url>
+    </route>
+    <route name="nourl" action="testController:nourl" method="get">
+        <params>
+            <param name="id">[0-9]+</param>
+            <param name="slug">\w+</param>
+        </params>
+        <url>/nolang/{:id}-{:slug}</url>
+    </route>
+</routes>
