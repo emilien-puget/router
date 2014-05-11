@@ -20,7 +20,7 @@ class RouterSax
 
     private function __construct($file_name, $default_lang, $mod)
     {
-        $this->file = dirname(__FILE__).'\routes_'.$file_name.'.php';
+        $this->file = dirname(__FILE__).DIRECTORY_SEPARATOR.'routes_'.$file_name.'.php';
         if (_ROUTER_CACHE_ && file_exists($this->file)) {
             require($this->file);
             $this->map = $route_map;
@@ -35,7 +35,7 @@ class RouterSax
 
             xml_parser_set_option($sax_parser, XML_OPTION_CASE_FOLDING, false);
             xml_parser_set_option($sax_parser, XML_OPTION_SKIP_WHITE, true);
-            xml_parse($sax_parser, file_get_contents(dirname(__FILE__).'\\'.$file_name), true);
+            xml_parse($sax_parser, file_get_contents(dirname(__FILE__).DIRECTORY_SEPARATOR.$file_name), true);
             xml_parser_free($sax_parser);
         }
     }
